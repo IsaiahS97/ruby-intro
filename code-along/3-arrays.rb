@@ -21,11 +21,19 @@ p  mixed_stuff
 puts foods[0] #prints first line from foods... starts at 0 
 puts foods[1]
 puts foods[2]
-puts foods[3] # doesnt exist, will be blank
-
+puts foods[3].inspect # doesnt exist, will be blank
+# nil means blank --- since empty will say nil with inspect 
+puts foods[-1] # gives last one in array 
 
 # Add to the array
 
+shopping_list = foods + ["eggs"]  # combines two list, need brackets or it wont work 
+p shopping_list 
+
+shopping_list = foods << "eggs"
+p shopping_list
+
+shopping_list 
 
 
 # There are lots of fun things you can do with arrays:

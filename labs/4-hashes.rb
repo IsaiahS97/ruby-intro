@@ -9,6 +9,8 @@ response = Net::HTTP.get(uri)
 bitcoin_data = JSON.parse(response)
 # ----------------------
 
+
+puts bitcoin_data
 # To run this code, be sure your current working directory
 # is the same as where this file is located and then run:
 # ruby 4-hashes.rb
@@ -17,6 +19,7 @@ bitcoin_data = JSON.parse(response)
 # Ask the user for the current amount of Bitcoin that they own.
 # Using the Ruby hash `bitcoin_data`, display a summary of
 # Bitcoin data for the user. Something like the output below.
+
 
 # Sample output:
 # 1 Bitcoin is valued at $41405.1046 USD.
@@ -30,4 +33,8 @@ bitcoin = gets.chomp
 bitcoin = bitcoin.to_f
 
 # 3. inspect the bitcoin_data hash
-# puts bitcoin_data
+puts bitcoin_data
+
+bitcoin_rate = bitcoin_data["USD"]["last"]
+bitcoin_value = bitcoin * bitcoin_rate
+puts "You have" + " $" + bitcoin_value.round(0).to_s + " in bitcoin"
